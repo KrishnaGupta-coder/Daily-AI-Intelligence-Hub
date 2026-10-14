@@ -1,0 +1,33 @@
+name: Daily AI Intelligence Auto-Updater
+
+on:
+  schedule:
+    # Runs every day at 00:00 UTC
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-intelligence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run AI Intelligence Harvester
+        run: python updater.py
+
+      - name: Commit and Push Daily Report
+        run: |
+          git config user.name "KrishnaGupta-coder"
+          git config user.email "16krishnagupta06@gmail.com"
+          git add reports/ README.md
+          git diff --staged --quiet || git commit -m "feat(digest): update daily AI intelligence report for $(date -u +%Y-%m-%d)"
+          git push origin main
