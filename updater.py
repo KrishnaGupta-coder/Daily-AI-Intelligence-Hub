@@ -133,12 +133,12 @@ This repository operates as an **autonomous intelligence agent** maintained by [
 
 ```mermaid
 flowchart LR
-    A[⏰ GitHub Action Cron] --> B[🐍 Python Intelligence Agent]
-    B --> C[📡 arXiv API - CS.AI / CV / LG]
-    B --> D[🤗 Hugging Face Model API]
-    C --> E[📊 Compile Daily Report]
+    A["⏰ GitHub Action Cron"] --> B["🐍 Python Intelligence Agent"]
+    B --> C["📡 arXiv API - CS.AI / CV / LG"]
+    B --> D["🤗 Hugging Face Model API"]
+    C --> E["📊 Compile Daily Report"]
     D --> E
-    E --> F[📝 Commit & Push to Repo]
+    E --> F["📝 Commit & Push to Repo"]
 ```
 
 ---
