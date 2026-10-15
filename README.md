@@ -4,7 +4,7 @@
   <p><b>Autonomous Daily Engine Tracking Frontier AI Models, Research Papers & Computer Vision Benchmarks</b></p>
 
   <img src="https://img.shields.io/badge/Status-Automated_Daily-00C7B7?style=for-the-badge&logo=githubactions&logoColor=white" />
-  <img src="https://img.shields.io/badge/Total_Digests-1-7928CA?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Total_Digests-2-7928CA?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Maintained_By-Krishna_Gupta-3776AB?style=for-the-badge&logo=python&logoColor=white" />
 
 </div>
@@ -16,12 +16,9 @@ This repository operates as an **autonomous intelligence agent** maintained by [
 
 ---
 
-### 📡 Latest Digest Summary (`2026-10-14`)
+### 📡 Latest Digest Summary (`2026-10-15`)
 
 #### Top arXiv Papers Detected Today:
-- **[ChunkAct: Action Chunking for Agentic Robotics](http://arxiv.org/abs/2610.18874v1)** — `2026-10-13`
-- **[LoopWAM: Closed-Loop Generalist Policy Improvement from Deployment Rollouts](http://arxiv.org/abs/2610.18873v1)** — `2026-10-13`
-- **[EgoExplorer: A Vision-Motion-Touch Observatory for Human Loco-Manipulation In Situ](http://arxiv.org/abs/2610.18872v1)** — `2026-10-13`
 
 ---
 
@@ -29,6 +26,7 @@ This repository operates as an **autonomous intelligence agent** maintained by [
 
 | Date | Report Link | Validation |
 | :--- | :--- | :--- |
+| 📅 `2026-10-15` | [View Full Intelligence Report](reports/2026-10-15.md) | Verified Automated Digest |
 | 📅 `2026-10-14` | [View Full Intelligence Report](reports/2026-10-14.md) | Verified Automated Digest |
 
 
