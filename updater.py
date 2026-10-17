@@ -31,8 +31,8 @@ def fetch_arxiv_papers():
     return papers
 
 def fetch_huggingface_models():
-    """Fetches trending AI models from Hugging Face."""
-    url = "https://huggingface.co/api/models?sort=downloads&direction=-1&limit=5"
+    """Fetches trending AI models from Hugging Face based on active community trending score."""
+    url = "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=5"
     models = []
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
