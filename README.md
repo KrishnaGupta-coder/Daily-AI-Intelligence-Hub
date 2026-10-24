@@ -4,7 +4,7 @@
   <p><b>Autonomous Daily Engine Tracking Frontier AI Models, Research Papers & Computer Vision Benchmarks</b></p>
 
   <img src="https://img.shields.io/badge/Status-Automated_Daily-00C7B7?style=for-the-badge&logo=githubactions&logoColor=white" />
-  <img src="https://img.shields.io/badge/Total_Digests-10-7928CA?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Total_Digests-11-7928CA?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Maintained_By-Krishna_Gupta-3776AB?style=for-the-badge&logo=python&logoColor=white" />
 
 </div>
@@ -16,12 +16,9 @@ This repository operates as an **autonomous intelligence agent** maintained by [
 
 ---
 
-### 📡 Latest Digest Summary (`2026-10-23`)
+### 📡 Latest Digest Summary (`2026-10-24`)
 
 #### Top arXiv Papers Detected Today:
-- **[A Unified Framework for Image-to-3D Part Generation via Variable Granularity](http://arxiv.org/abs/2610.31671v1)** — `2026-10-22`
-- **[Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success](http://arxiv.org/abs/2610.31670v1)** — `2026-10-22`
-- **[Reading, Writing, Sharing, and Interacting with the World through Video](http://arxiv.org/abs/2610.31668v1)** — `2026-10-22`
 
 ---
 
@@ -29,6 +26,7 @@ This repository operates as an **autonomous intelligence agent** maintained by [
 
 | Date | Report Link | Validation |
 | :--- | :--- | :--- |
+| 📅 `2026-10-24` | [View Full Intelligence Report](reports/2026-10-24.md) | Verified Automated Digest |
 | 📅 `2026-10-23` | [View Full Intelligence Report](reports/2026-10-23.md) | Verified Automated Digest |
 | 📅 `2026-10-22` | [View Full Intelligence Report](reports/2026-10-22.md) | Verified Automated Digest |
 | 📅 `2026-10-21` | [View Full Intelligence Report](reports/2026-10-21.md) | Verified Automated Digest |
@@ -38,7 +36,6 @@ This repository operates as an **autonomous intelligence agent** maintained by [
 | 📅 `2026-10-17` | [View Full Intelligence Report](reports/2026-10-17.md) | Verified Automated Digest |
 | 📅 `2026-10-16` | [View Full Intelligence Report](reports/2026-10-16.md) | Verified Automated Digest |
 | 📅 `2026-10-15` | [View Full Intelligence Report](reports/2026-10-15.md) | Verified Automated Digest |
-| 📅 `2026-10-14` | [View Full Intelligence Report](reports/2026-10-14.md) | Verified Automated Digest |
 
 
 ---
