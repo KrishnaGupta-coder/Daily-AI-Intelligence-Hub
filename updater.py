@@ -49,7 +49,66 @@ def fetch_huggingface_models():
         print(f"Error fetching HuggingFace: {e}")
     return models
 
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
+
+def fetch_trending_github_repos():
+    """Fetches top AI/LLM GitHub repositories pushed/created in the last 7 days."""
+    since = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d")
+    url = f"https://api.github.com/search/repositories?q=topic:llm+OR+topic:ai-agents+pushed:>{since}&sort=stars&order=desc&per_page=5"
+    repos = []
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0', 'Accept': 'application/vnd.github.v3+json'})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            for r in data.get('items', []):
+                repos.append({
+                    'name': r.get('full_name', 'Unknown'),
+                    'stars': r.get('stargazers_count', 0),
+                    'desc': (r.get('description') or 'No description')[:120],
+                    'url': r.get('html_url', '')
+                })
+    except Exception as e:
+        print(f"Error fetching GitHub repos: {e}")
+    return repos
+
+def push_notifications(today, papers, models, repos):
+    """Optionally pushes daily digest summary to Discord Webhook or Telegram Bot if configured via env secrets."""
+    summary_lines = [f"🧠 **Daily AI Digest — {today}**"]
+    if papers:
+        summary_lines.append(f"📄 Top Paper: [{papers[0]['title']}]({papers[0]['link']})")
+    if models:
+        summary_lines.append(f"🔥 Top HF Model: `{models[0]['id']}` ({models[0]['likes']} likes)")
+    if repos:
+        summary_lines.append(f"⭐ Hot GitHub Repo: [{repos[0]['name']}]({repos[0]['url']}) ({repos[0]['stars']:,}★)")
+    summary = "\n".join(summary_lines)
+
+    discord_url = os.getenv("DISCORD_WEBHOOK_URL")
+    if discord_url:
+        try:
+            req = urllib.request.Request(
+                discord_url,
+                data=json.dumps({"content": summary}).encode('utf-8'),
+                headers={'Content-Type': 'application/json', 'User-Agent': 'Daily-AI-Hub'}
+            )
+            urllib.request.urlopen(req, timeout=10)
+            print("Discord notification sent.")
+        except Exception as e:
+            print(f"Discord webhook failed: {e}")
+
+    tg_token = os.getenv("TELEGRAM_BOT_TOKEN")
+    tg_chat = os.getenv("TELEGRAM_CHAT_ID")
+    if tg_token and tg_chat:
+        try:
+            tg_url = f"https://api.telegram.org/bot{tg_token}/sendMessage"
+            req = urllib.request.Request(
+                tg_url,
+                data=json.dumps({"chat_id": tg_chat, "text": summary, "disable_web_page_preview": True}).encode('utf-8'),
+                headers={'Content-Type': 'application/json'}
+            )
+            urllib.request.urlopen(req, timeout=10)
+            print("Telegram notification sent.")
+        except Exception as e:
+            print(f"Telegram notification failed: {e}")
 
 def generate_report():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -58,10 +117,11 @@ def generate_report():
 
     papers = fetch_arxiv_papers()
     models = fetch_huggingface_models()
+    repos = fetch_trending_github_repos()
 
     content = f"""# 🧠 AI Intelligence Digest — {today}
 
-Automated daily intelligence synthesis tracking breaking machine learning papers and trending open weights.
+Automated daily intelligence synthesis tracking breaking machine learning papers, trending open weights, and rising GitHub AI repos.
 
 ---
 
@@ -77,6 +137,10 @@ Automated daily intelligence synthesis tracking breaking machine learning papers
     for m in models:
         content += f"| `{m['id']}` | {m['downloads']:,} | {m['likes']:,} | [View Model]({m['link']}) |\n"
 
+    content += "\n---\n\n### ⭐ Trending GitHub AI Repositories\n\n| Repository | Stars | Summary |\n| :--- | :--- | :--- |\n"
+    for r in repos:
+        content += f"| [{r['name']}]({r['url']}) | {r['stars']:,} | {r['desc']} |\n"
+
     content += f"\n\n---\n*Report generated automatically by [Krishna Gupta's Daily AI Intelligence Hub](https://github.com/KrishnaGupta-coder/Daily-AI-Intelligence-Hub) on {today} UTC.*"
 
     with open(report_file, "w", encoding="utf-8") as f:
@@ -84,6 +148,7 @@ Automated daily intelligence synthesis tracking breaking machine learning papers
 
     print(f"Report generated: {report_file}")
     update_main_readme(today, papers, models)
+    push_notifications(today, papers, models, repos)
 
 def update_main_readme(today, papers, models):
     reports = sorted(os.listdir("reports"), reverse=True)
