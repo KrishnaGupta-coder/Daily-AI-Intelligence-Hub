@@ -4,7 +4,7 @@
   <p><b>Autonomous Daily Engine Tracking Frontier AI Models, Research Papers & Computer Vision Benchmarks</b></p>
 
   <img src="https://img.shields.io/badge/Status-Automated_Daily-00C7B7?style=for-the-badge&logo=githubactions&logoColor=white" />
-  <img src="https://img.shields.io/badge/Total_Digests-29-7928CA?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Total_Digests-30-7928CA?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Maintained_By-Krishna_Gupta-3776AB?style=for-the-badge&logo=python&logoColor=white" />
 
 </div>
@@ -16,7 +16,7 @@ This repository operates as an **autonomous intelligence agent** maintained by [
 
 ---
 
-### 📡 Latest Digest Summary (`2026-11-11`)
+### 📡 Latest Digest Summary (`2026-11-12`)
 
 #### Top arXiv Papers Detected Today:
 
@@ -26,6 +26,7 @@ This repository operates as an **autonomous intelligence agent** maintained by [
 
 | Date | Report Link | Validation |
 | :--- | :--- | :--- |
+| 📅 `2026-11-12` | [View Full Intelligence Report](reports/2026-11-12.md) | Verified Automated Digest |
 | 📅 `2026-11-11` | [View Full Intelligence Report](reports/2026-11-11.md) | Verified Automated Digest |
 | 📅 `2026-11-10` | [View Full Intelligence Report](reports/2026-11-10.md) | Verified Automated Digest |
 | 📅 `2026-11-09` | [View Full Intelligence Report](reports/2026-11-09.md) | Verified Automated Digest |
@@ -35,7 +36,6 @@ This repository operates as an **autonomous intelligence agent** maintained by [
 | 📅 `2026-11-05` | [View Full Intelligence Report](reports/2026-11-05.md) | Verified Automated Digest |
 | 📅 `2026-11-04` | [View Full Intelligence Report](reports/2026-11-04.md) | Verified Automated Digest |
 | 📅 `2026-11-03` | [View Full Intelligence Report](reports/2026-11-03.md) | Verified Automated Digest |
-| 📅 `2026-11-02` | [View Full Intelligence Report](reports/2026-11-02.md) | Verified Automated Digest |
 
 
 ---
